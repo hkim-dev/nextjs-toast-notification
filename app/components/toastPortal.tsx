@@ -5,13 +5,15 @@ import { createPortal } from 'react-dom';
 import Toast from '@/components/toast';
 import { ToastMessage } from '@/customTypes/toast';
 
-const ToastPortal = ({
-  toasts,
-  removeToast
-}: {
+interface ToastPortalProps {
   toasts: ToastMessage[],
   removeToast: (id: string) => void
-}) => {
+}
+
+export default function ToastPortal({
+  toasts,
+  removeToast
+}: ToastPortalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -34,5 +36,3 @@ const ToastPortal = ({
     document.querySelector('#main')!
   ) : null;
 };
-
-export default ToastPortal;

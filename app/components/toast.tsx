@@ -1,15 +1,9 @@
+"use client";
+
 import React, { useEffect } from 'react';
 import { FaInfoCircle, FaCheckCircle } from "react-icons/fa";
 import { MdOutlineWarning, MdOutlineError } from "react-icons/md";
-
-export type ToastType = 'info' | 'success' | 'warning' | 'error';
-
-export interface ToastMessage {
-  id: string;
-  title: string;
-  message: string;
-  type: ToastType;
-};
+import { ToastType } from '@/customTypes/toast';
 
 const icons = {
   info: <FaInfoCircle />,
@@ -26,7 +20,7 @@ interface ToastProps {
   onRemove: (id: string) => void;
 };
 
-const Toast: React.FC<ToastProps> = ({ id, title, message, type, onRemove }) => {
+export default function Toast({ id, title, message, type, onRemove }: ToastProps){
   useEffect(() => {
     const timeout = setTimeout(() => {
       onRemove(id);
@@ -58,5 +52,3 @@ const Toast: React.FC<ToastProps> = ({ id, title, message, type, onRemove }) => 
     </div>
   );
 };
-
-export default Toast;
