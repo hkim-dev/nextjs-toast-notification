@@ -31,7 +31,7 @@ const ToastPortal = ({
         />
       ))}
     </div>,
-    document.querySelector('.main-container')!
+    document.querySelector('#main')!
   ) : null;
 };
 
